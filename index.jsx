@@ -29,8 +29,7 @@ class TypeWriter extends React.Component {
 
     if (active > 0 && next < 0) {
       this.setState({
-        // Prevent visibleChars to be set to -2
-        visibleChars: Math.max(this.state.visibleChars - 1, -1)
+        visibleChars: this.state.visibleChars - 1
       });
     } else if (active <= 0 && next > 0) {
       this.setState({
@@ -115,6 +114,9 @@ class TypeWriter extends React.Component {
     let newVisibleChars = visibleChars + typing;
 
     if (newVisibleChars < -1) newVisibleChars = -1;
+
+    // Dirty hack, only works for our specific use case
+    if (newVisibleChars > 34) newVisibleChars = 34;
 
     this.setState({
       visibleChars: newVisibleChars

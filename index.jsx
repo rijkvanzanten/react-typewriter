@@ -112,8 +112,12 @@ class TypeWriter extends React.Component {
     const {typing} = this.props;
     const {visibleChars} = this.state;
 
+    let newVisibleChars = visibleChars + typing;
+
+    if (newVisibleChars < -1) newVisibleChars = -1;
+
     this.setState({
-      visibleChars: visibleChars + typing
+      visibleChars: newVisibleChars
     });
   }
 }

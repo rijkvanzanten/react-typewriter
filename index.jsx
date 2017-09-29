@@ -116,7 +116,9 @@ class TypeWriter extends React.Component {
     if (newVisibleChars < -1) newVisibleChars = -1;
 
     // Dirty hack, only works for our specific use case
-    if (newVisibleChars > 34) newVisibleChars = 34;
+    if (this.props.maxStringLength) {
+      if (newVisibleChars > this.props.maxStringLength) newVisibleChars = this.props.maxStringLength;
+    }
 
     this.setState({
       visibleChars: newVisibleChars

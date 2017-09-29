@@ -3,11 +3,13 @@ react-typewriter
 
 A react component for animated typing text.
 
+This is a fork of https://www.npmjs.com/package/react-typewriter
+
 Installation
 ------------
 
 ```
-npm install --save react-typewriter
+npm install rijkvanzanten/react-typewriter
 ```
 
 Usage

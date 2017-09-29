@@ -1,5 +1,5 @@
 import React from 'react';
-import {styleComponentSubstring, componentTokenAt} from '../utils';
+import {styleComponentSubstring, componentTokenAt} from './utils';
 
 /**
  * TypeWriter
@@ -29,7 +29,8 @@ class TypeWriter extends React.Component {
 
     if (active > 0 && next < 0) {
       this.setState({
-        visibleChars: this.state.visibleChars - 1
+        // Prevent visibleChars to be set to -2
+        visibleChars: Math.max(this.state.visibleChars - 1, -1)
       });
     } else if (active <= 0 && next > 0) {
       this.setState({
